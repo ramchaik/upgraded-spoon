@@ -1,0 +1,26 @@
+{
+  "name": "upgraded-spoon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramchaik/upgraded-spoon.git"
+  },
+  "keywords": [],
+  "author": "Vaibhav Singh <0vaibhavsingh0@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ramchaik/upgraded-spoon/issues"
+  },
+  "homepage": "https://github.com/ramchaik/upgraded-spoon#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.14",
+    "nanoid": "^2.1.11"
+  }
+}
