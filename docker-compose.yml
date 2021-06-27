@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  url-shortener:
+    restart: always
+    build: .
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongo-srv:27017/upgraded-spoon
+    ports:
+      - 80:3000
+    volumes:
+      - ./:/app # bind mount for better DX, keeps the sync with local and container dir 
+      - /app/node_modules # hack for overriding the bind mount for node_modules sync from local (anonymous bind with higer specificity)
+    links:
+      - mongo-srv
+  mongo-srv:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+volumes:
+  mongodb:

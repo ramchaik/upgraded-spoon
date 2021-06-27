@@ -45,7 +45,7 @@ app.get('/:shortid', async (req, res) => {
   res.redirect(url.full);
 });
 
-mongoose.connect('mongodb://localhost/upgraded-spoon', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
