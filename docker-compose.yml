@@ -10,6 +10,7 @@ services:
       - 80:3000
     volumes:
       - ./:/app # bind mount for better DX, keeps the sync with local and container dir 
+      # - ./:/app:ro # ro - readonly, more secure
       - /app/node_modules # hack for overriding the bind mount for node_modules sync from local (anonymous bind with higer specificity)
     links:
       - mongo-srv
