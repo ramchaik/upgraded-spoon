@@ -14,7 +14,7 @@ services:
       - MONGO_URI=mongodb://mongo:27017/upgraded-spoon
     # env_file:
     #   - ./.env
-    links:
+    depends_on:
       - mongo
   mongo:
     image: mongo
