@@ -13,7 +13,7 @@
 	<body>
 		<div class="container">
 			<h1>URL Shrinker</h1>
-			<form action="/short" method="POST" class="my-4 form-inline">
+			<form action="/api/v1/url/short" method="POST" class="my-4 form-inline">
 				<label for="fullUrl" class="sr-only">URL</label>
 				<input
 					required
@@ -38,7 +38,7 @@
 					<% shortUrls.forEach(shortUrl => { %>
 					<tr>
 						<td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
-						<td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+						<td><a href="/api/v1/url/<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
 						<td><%= shortUrl.clicks %></td>
 					</tr>
 					<% }) %>
