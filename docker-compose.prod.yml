@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  url-shortener:
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/upgraded-spoon
+    command: node src/index.js

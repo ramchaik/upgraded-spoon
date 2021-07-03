@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  url-shortener:
+    volumes: 
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongo:27017/upgraded-spoon
+    command: npm run dev
