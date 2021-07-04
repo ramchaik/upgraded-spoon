@@ -4,10 +4,20 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const redis = require('redis');
 
+require('dotenv-safe').config();
+
+const {
+  REDIS_URL,
+  MONGO_URI,
+  PORT,
+  REDIS_PORT,
+  SESSION_SECRET,
+} = require('../config');
+
 const RedisStore = require('connect-redis')(session);
 const redisClient = redis.createClient({
-  host: process.env.REDIS_URL,
-  port: process.env.REDIS_PORT,
+  host: REDIS_URL,
+  port: REDIS_PORT,
 });
 
 const { urlRouter, userRouter } = require('./routes');
@@ -21,19 +31,17 @@ app.use(express.json());
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
-const PORT = process.env.PORT || 3000;
-
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
-    secret: process.env.SESSION_SECRET,
+    secret: SESSION_SECRET,
     cookie: {
       secure: false,
       resave: false,
       saveUninitialized: false,
       httpOnly: true,
-      maxAge: 60000 
-    }
+      maxAge: 60000,
+    },
   })
 );
 
@@ -46,7 +54,7 @@ app.get('/register', urlController.renderRegister);
 app.use('/api/v1/url', urlRouter);
 app.use('/api/v1/users', userRouter);
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
