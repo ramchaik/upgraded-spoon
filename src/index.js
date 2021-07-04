@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const redis = require('redis');
+const cors = require('cors');
 
 require('dotenv-safe').config();
 
@@ -32,6 +33,8 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 app.enable('trust proxy');
+app.use(cors({}));
+
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
