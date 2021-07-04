@@ -1,20 +1,31 @@
-version: "3.9"
+version: '3.9'
 services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - 3000:80
+    volumes:
+      - ./nginx/default.conf/:/etc/nginx/conf.d/default.conf:ro # bind mount vol, readonly
+    depends_on:
+      - url-shortener
+
   url-shortener:
     build: .
-    ports:
-      - 3000:3000
     environment:
       - PORT=3000
     depends_on:
       - mongo
+      - redis
+
   mongo:
     image: mongo
     ports:
       - 27017:27017
     volumes:
       - mongodb:/data/db
+
   redis:
     image: redis
+
 volumes:
   mongodb:
