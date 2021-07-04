@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 const bcrypt = require('bcryptjs');
 
-exports.signUp = async (req, res) => {
+exports.register = async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -13,12 +13,7 @@ exports.signUp = async (req, res) => {
     });
 
     req.session.user = newUser;
-    res.status(201).json({
-      status: 'success',
-      data: {
-        user: newUser,
-      },
-    });
+    res.status(201).redirect('/');
   } catch (error) {
     console.log(error);
     res.status(400).json({
@@ -48,9 +43,7 @@ exports.login = async (req, res) => {
     }
 
     req.session.user = user;
-    res.status(200).json({
-      status: 'success',
-    });
+    res.status(200).redirect('/');
   } catch (error) {
     console.log(error);
     res.status(400).json({

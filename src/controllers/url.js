@@ -2,7 +2,8 @@ const ShortURL = require('../models/url');
 
 exports.get = async (req, res) => {
   const allData = await ShortURL.find({});
-  res.render('index', { shortUrls: allData });
+  const { user } = req.session;
+  res.render('index', { shortUrls: allData, user });
 };
 
 exports.create = async (req, res) => {
@@ -30,4 +31,12 @@ exports.getByShortId = async (req, res) => {
   await url.save();
 
   res.redirect(url.full);
+};
+
+exports.renderRegister = async (req, res) => {
+  res.render('register');
+};
+
+exports.renderLogin = async (req, res) => {
+  res.render('login');
 };

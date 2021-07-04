@@ -37,7 +37,12 @@ app.use(
   })
 );
 
+// Views
 app.get('/', urlController.get);
+app.get('/login', urlController.renderLogin);
+app.get('/register', urlController.renderRegister);
+
+// APIs
 app.use('/api/v1/url', urlRouter);
 app.use('/api/v1/users', userRouter);
 
