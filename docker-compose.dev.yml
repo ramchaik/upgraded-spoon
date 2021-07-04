@@ -11,4 +11,7 @@ services:
     environment:
       - NODE_ENV=development
       - MONGO_URI=mongodb://mongo:27017/upgraded-spoon
+      - REDIS_URL=redis
+      - REDIS_PORT=6379
+      - SESSION_SECRET=xyz
     command: npm run dev

@@ -8,4 +8,7 @@ services:
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/upgraded-spoon
+      - REDIS_URL=redis
+      - REDIS_PORT=6379
+      - SESSION_SECRET=abc
     command: node src/index.js
