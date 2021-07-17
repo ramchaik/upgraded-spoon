@@ -13,7 +13,7 @@ const ShortURL = require('../models/url');
  * @method create
  * @param {Request} req - request object 
  * @param {Response} res - response object 
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.create = async (req, res) => {
   const fullUrl = req.body.fullUrl;
@@ -35,7 +35,7 @@ exports.create = async (req, res) => {
  * @method getByShortId
  * @param {Request} req - request object 
  * @param {Response} res - response object 
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.getByShortId = async (req, res) => {
   const { shortid } = req.params;
@@ -58,7 +58,7 @@ exports.getByShortId = async (req, res) => {
  * @method get
  * @param {Request} req - request object 
  * @param {Response} res - response object 
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.get = async (req, res) => {
   const allData = await ShortURL.find({});
@@ -73,7 +73,7 @@ exports.get = async (req, res) => {
  * @method renderRegister
  * @param {Request} req - request object 
  * @param {Response} res - response object 
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.renderRegister = async (req, res) => {
   res.render('register');
@@ -86,7 +86,7 @@ exports.renderRegister = async (req, res) => {
  * @method renderLogin
  * @param {Request} req - request object 
  * @param {Response} res - response object 
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.renderLogin = async (req, res) => {
   res.render('login');

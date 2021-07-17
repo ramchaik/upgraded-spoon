@@ -13,7 +13,7 @@ const User = require('../models/user');
  * @method register
  * @param {Request} req - request object
  * @param {Response} res - response object
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.register = async (req, res) => {
   const { username, password } = req.body;
@@ -42,7 +42,7 @@ exports.register = async (req, res) => {
  * @method login
  * @param {Request} req - request object
  * @param {Response} res - response object
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 exports.login = async (req, res) => {
   const { username, password } = req.body;

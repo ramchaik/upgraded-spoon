@@ -12,7 +12,7 @@ const { Request, Response, NextFunction } = require('express');
  * @param {Request} req - request object
  * @param {Response} res - response object
  * @param  {NextFunction} next - next function
- * @return {Promise<void>}
+ * @returns {Promise<void>}
  */
 const protect = (req, res, next) => {
   const { user } = req.session;
