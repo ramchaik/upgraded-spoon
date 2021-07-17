@@ -1,7 +1,20 @@
-const User = require('../models/user');
-
+const { Request, Response } = require('express');
 const bcrypt = require('bcryptjs');
 
+const User = require('../models/user');
+
+/**
+ * @module Auth Controller 
+ */
+
+/**
+ * Register a user
+ * @async
+ * @method register
+ * @param {Request} req - request object
+ * @param {Response} res - response object
+ * @return {Promise<void>}
+ */
 exports.register = async (req, res) => {
   const { username, password } = req.body;
 
@@ -22,6 +35,15 @@ exports.register = async (req, res) => {
   }
 };
 
+/**
+ * Login a user
+ *
+ * @async
+ * @method login
+ * @param {Request} req - request object
+ * @param {Response} res - response object
+ * @return {Promise<void>}
+ */
 exports.login = async (req, res) => {
   const { username, password } = req.body;
 

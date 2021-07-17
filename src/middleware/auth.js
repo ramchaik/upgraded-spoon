@@ -1,3 +1,19 @@
+const { Request, Response, NextFunction } = require('express');
+
+/**
+ * @module Middleware
+ */
+
+/**
+ * Middleware to protect a route
+ *
+ * @async
+ * @method protect
+ * @param {Request} req - request object
+ * @param {Response} res - response object
+ * @param  {NextFunction} next - next function
+ * @return {Promise<void>}
+ */
 const protect = (req, res, next) => {
   const { user } = req.session;
 
