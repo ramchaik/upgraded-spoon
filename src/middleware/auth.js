@@ -1,7 +1,7 @@
 const { Request, Response, NextFunction } = require('express');
 
 /**
- * @module Middleware
+ * @module Middleware/Auth
  */
 
 /**

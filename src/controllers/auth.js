@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 
 /**
- * @module Auth Controller 
+ * @module Controller/Auth
  */
 
 /**

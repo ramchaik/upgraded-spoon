@@ -3,7 +3,7 @@ const { Request, Response } = require('express');
 const ShortURL = require('../models/url');
 
 /**
- * @module URL Controller 
+ * @module Controller/URL
  */
 
 /**
